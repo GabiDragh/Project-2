@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 const Footer = () => (
   <>
-    <div class="container">
+    <div>
       <div class="row">
       <div class="col">Tonight</div>
         <div class="col">Friday</div>
