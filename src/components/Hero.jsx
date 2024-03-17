@@ -1,10 +1,12 @@
 import React from 'react';
+import weatherMock from '../services/weatherMock';
 
 // TODO: Import asset components (weather scenes)?
 
 
-const Hero = ({ weatherData }) => { //weatherData object destructuring prop in from API call - TODO: create component/take it from Jean or create a mock call to see some results!!!
-    
+const Hero = () => { //weatherData object destructuring prop in from API call - TODO: create component/take it from Jean or create a mock call to see some results!!!
+    const weatherData = weatherMock('New York');
+
     const skyText = weatherData[0].current.skytext; //check weather API for the skytext position - weather-js data returns it as written here, FIXME: but will have to change if different API used
     console.log(skyText);
     
@@ -17,23 +19,23 @@ const Hero = ({ weatherData }) => { //weatherData object destructuring prop in f
         console.log(currentSky);
 
         // DONE: Add swithcase statement that returns assest component based on simplified text from sky text
-        switch (currentSky) {
-            case 'sunny':
-                return <SunnyScene />;
-            case 'clear':
-                return <ClearScene />
-            case 'cloudy':
-                return <CloudyScene />;
-            case 'rain':
-                return <RainScene />;
-            case 'snow':
-                return <SnowScene />;
-            case 'storms':
-                return <StormScene />;
-            // FIXME: possible other cases? Weather APi dependent
-            default:
-                return 'Oops! Apologies, it seems I am having trouble processing that!'
-        }
+        // switch (currentSky) {
+        //     case 'sunny':
+        //         return <SunnyScene />;
+        //     case 'clear':
+        //         return <ClearScene />
+        //     case 'cloudy':
+        //         return <CloudyScene />;
+        //     case 'rain':
+        //         return <RainScene />;
+        //     case 'snow':
+        //         return <SnowScene />;
+        //     case 'storms':
+        //         return <StormScene />;
+        //     // FIXME: possible other cases? Weather APi dependent
+        //     default:
+        //         return 'Oops! Apologies, it seems I am having trouble processing that!'
+        // }
     };
 
     // DONE: Define variable to store the asset
