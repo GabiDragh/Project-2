@@ -38,21 +38,20 @@ const Hero = () => { //weatherData object destructuring prop in from API call - 
     //         default:
     //             return 'Oops! Apologies, it seems I am having trouble processing that!'
     //     }
-    };
+    
 
     // DONE: Define variable to store the asset
     // const assetScene = callAsset(skyText);
 
     // DONE: Return in browser
     return (
-    <>
-        <div className="hero" id ="hero">
+        <div id ="hero">
             {/* Added asset to hero section */}
             {/* {assetScene} */}
             <RainScene />
         </div>
-        <Weather/>
-    </>
 );
+
+};
 
 export default Hero;
