@@ -1,16 +1,19 @@
 .navbar{
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     background: white;
     padding: 15px 7%;
     transition: 0.5s;
+    height: 100px;
 
 }
 .logo{
-    width: 160px;
+    width: 90px;
     cursor: pointer;
+    display: flex;
+    align-items: flex-start;
 }
 ul{
     flex: 1;
