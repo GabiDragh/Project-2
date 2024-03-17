@@ -1,10 +1,10 @@
 import React from 'react'
 import './Navbar.css'
-import logo_main from '../../assets/logo.png'
-import search_icon_light from '../../assets/search-w.png'
-import search_icon_dark from '../../assets/search-b.png'
-import toggle_light from '../../assets/night.png'
-import toggle_dark from '../../assets/day.png'
+import logo_main from '../../assets/images/logo.png'
+import search_icon_light from '../../assets/images/search-w.png'
+import search_icon_dark from '../../assets/images/search-b.png'
+import toggle_light from '../../assets/images/night.png'
+import toggle_dark from '../../assets/images/day.png'
 
 
 const Navbar = ({theme, setTheme}) => {
