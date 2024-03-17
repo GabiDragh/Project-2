@@ -4,11 +4,16 @@ import React, {useRef, useEffect } from 'react' //Import React and hooks from Re
 import * as THREE from 'three' // Import Three.js
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader' // Import gltf loader to load avatar
 import RainBackground from '../images/RainBackground.png'
+import RainAvatar  from './RainAvatar'
+import { Canvas } from '@react-three/fiber'
+// import avatarRunning from '../../../public/models/Running.glb'
+
 
 const RainScene = () => {
 // TODO: Create rain using three.js
 
 const containerRef = useRef();
+
 
 useEffect(() => {
     // Create the three.js scene
@@ -52,31 +57,42 @@ useEffect(() => {
 
     animate();
 
-    // Cleanup
-    return () => {
+    // TODO: Add avatar
+
+    // const loader = new GLTFLoader();
+    // loader.load( '/models/Running.glb', gltf => {
+    //         const avatar = gltf.scene;
+    //         avatar.scale.set(1, 1, 1);
+    //         avatar.position.set(0, 0, 0);
+    //         scene.add(avatar);
+    //     }
+    // );
+
+     // Cleanup
+     return () => {
         renderer.dispose();
         // scene.dispose();
     };
 
 }, []);
 
-// TODO: Add avatar
-
   return (
 
-    // DONE: Add scene background
-    <div className='scene' style={{
+    // FIXME: Add scene background - background image added but looking bad with the rain scene
+    <Canvas shadows camera={{ position: [0, 2, 5], fov: 30}} style={{
         backgroundImage: `url(${RainBackground})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
         height: '100%',
-        position: 'relative' // Set position to relative for the background image to cover the entire scene
+        position: 'relative' // // FIXME:Set position to relative for the background image to cover the entire scene
       }}>
-        <div className='rain-scene' ref={containerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-          {/* Your three.js rain scene */}
-        </div>
-      </div>
+        {/* <div className='rain-scene' ref={containerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+        </div> */}
+        <group position-y={-4}><RainAvatar /></group> 
+        <ambientLight intensity={1} />
+      </Canvas>
+      // FIXME: avatar position and movement load
 
   );
 }
