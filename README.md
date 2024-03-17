@@ -1,6 +1,4 @@
-# WeatherRebel
-
-<h1 align="center" id="title">Conversa - A Chatroom API</h1>
+<h1 align="center" id="title">WeatherRebel</h1>
 
 ## Table of Contents
 1. [Project Description](#project-description)
