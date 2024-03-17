@@ -96,7 +96,7 @@ We appreciate your interest in contributing to the WeatherRebel Project. We welc
 
 Find below our contributing guidelines. By following these guidelines, you'll help us to maintain a high quality codebase and make the review process smoother for everyone.
 
-**1. Fork the Repository:** Create a fork of the Conversa_API repository on GitHub.
+**1. Fork the Repository:** Create a fork of the WeatherRebel repository on GitHub.
 
 **2. Create a Branch:** Clone the forked repository to your local machine & create a new branch for your contribution.
 
