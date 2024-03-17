@@ -39,7 +39,7 @@ const Hero = ({ weatherData }) => { //weatherData object destructuring prop in f
     // DONE: Define variable to store the asset
     const assetScene = callAsset(skyText);
 
-    // TODO: Return in browser
+    // DONE: Return in browser
     return (
     <>
         <div className="hero" id ="hero">
