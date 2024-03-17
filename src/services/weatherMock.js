@@ -5,11 +5,11 @@
 
 // DONE: Install package npm i sinon npm i jest
 
-// TODO: Define var that requires sinon testing module (use axios - require axios/use mocha - require chai)
+// DONE: Define var that requires sinon testing module (use axios - require axios/use mocha - require chai)-for JS/import for react
 import sinon from 'sinon';
 import weather from 'weather-js';
 
-// TODO: Write API call function
+// DONE: Write API call function - as in weather-js documentation
 function weatherMock(city) { 
     return new Promise((resolve, reject) => {
         weather.find({ search: city, degreeType: 'C' }, function(err, result) {
@@ -21,12 +21,12 @@ function weatherMock(city) {
         });
     });
 }
-// TODO: Create Sinon stub to mock the API call
+// FIXME: Create Sinon stub to mock the API call
 const weatherStub = sinon.stub(weather, 'find');
 weatherStub.withArgs({ search: 'New York', degreeType: 'C' }).yields(null, [{ location: 'New York', temperature: '25°C' }]);
 
 
-// TODO: Call the function that makes the weather-js API call
+// FIXME: Call the function that makes the weather-js API call
 weatherMock('New York').then(result => {
     console.log(result);
 }).catch(error => {
@@ -34,7 +34,7 @@ weatherMock('New York').then(result => {
 });
 
 
-// TODO: Restore the original weather.find method
+// FIXME: Restore the original weather.find method
 weather.find.restore();
 
 
