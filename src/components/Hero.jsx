@@ -8,7 +8,7 @@ const Hero = ({ weatherData }) => { //weatherData object destructuring prop in f
     const skyText = weatherData[0].current.skytext; //check weather API for the skytext position - weather-js data returns it as written here, FIXME: but will have to change if different API used
     console.log(skyText);
     
-    // TODO: Function to navigate through the sky text and return asset component
+    // DONE: Function to navigate through the sky text and return asset component
 
     const callAsset = (skyText) => {
 
@@ -36,18 +36,21 @@ const Hero = ({ weatherData }) => { //weatherData object destructuring prop in f
         }
     };
 
-    // TODO: Define variable to store the asset
-
+    // DONE: Define variable to store the asset
+    const assetScene = callAsset(skyText);
 
     // TODO: Return in browser
-    
+    return (
     <>
-        <div id ="hero">
+        <div className="hero" id ="hero">
             <p>
                 WeatherRebel 3D Animation here
             </p>
+            {/* Added asset to hero section */}
+            {assetScene}
         </div>
-    </>
+    </> 
+ );
 };
 
 export default Hero;
