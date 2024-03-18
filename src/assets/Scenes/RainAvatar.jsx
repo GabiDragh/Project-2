@@ -15,7 +15,7 @@ const RainAvatar = (props) => {
   return (
     <a.group ref={group} {...props}>
       <group name="Scene">
-        <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.02, 0.02, 0.02}>
+        <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.03, 0.03, 0.03}>
           <skinnedMesh
             name="Ch03"
             geometry={nodes.Ch03.geometry}

@@ -12,13 +12,13 @@ import { Canvas } from '@react-three/fiber'
 const RainScene = () => {
 // TODO: Create rain using three.js
 
-const containerRef = useRef();
+const raindropsRef = useRef([]);
 
 
 useEffect(() => {
     // Create the three.js scene
     const scene = new THREE.Scene(); //set up the scene
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
     const renderer = new THREE.WebGLRenderer(); //set up the renderer 
     renderer.setSize( window.innerWidth, window.innerHeight ); //set the renderer size. Might need to adjust to /2 - half the resolution
     document.getElementById('hero').appendChild ( renderer.domElement ); //add the rendered element to the HTML (canvas element)
@@ -28,23 +28,29 @@ useEffect(() => {
     const raindropMaterial = new THREE.PointsMaterial({ color: 0x87ceeb, transparent: true }); //sphere material - basic SkyBlue 
  
     // Create raindrops
-    const raindrops = [];
+    // const raindrops = [];
     for (let i = 0; i < 500; i++) {
         const raindrop = new THREE.Mesh(raindropGeometry, raindropMaterial); //Create raindrop mesh applying the geometry and material
         raindrop.position.set(Math.random() * 20 - 10, Math.random() * 20, Math.random() * 20 - 10); //initial position x, y, z coordinates
-        raindrops.push(raindrop); //push elements in the array
+        raindropsRef.current.push(raindrop) ;//push elements in the array
         scene.add(raindrop); //add element to scene
     }
 
     // Set camera 
     camera.position.z = 4;
 
+    // Add background image loader
+    const loader = new THREE.TextureLoader();
+    loader.load(RainBackground, (texture) => {
+        scene.background = texture;
+    })
+
     // Create animation loop
     const animate = () => {
         requestAnimationFrame(animate);
 
         // Update raindrop positions
-        raindrops.forEach(raindrop => {
+        raindropsRef.current.forEach((raindrop) => {
             raindrop.position.y -= 0.1;
             if (raindrop.position.y < -5) {
                 raindrop.position.y = 20;
@@ -78,20 +84,27 @@ useEffect(() => {
 
   return (
 
-    // FIXME: Add scene background - background image added but looking bad with the rain scene
-    <Canvas shadows camera={{ position: [0, 2, 5], fov: 30}} style={{
-        backgroundImage: `url(${RainBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '100%',
-        height: '100%',
-        position: 'relative' // // FIXME:Set position to relative for the background image to cover the entire scene
-      }}>
+    // FIXME: Add scene background - background image added but looking bad with the rain
+    <div id="hero">
+    <Canvas shadows camera={{ position: [0, 2, 5], fov: 30}} >
+    {/* // style={{ position: 'absolute', top: 0, left: 0
+        // backgroundImage: `url(${RainBackground})`,
+        // backgroundSize: 'cover',
+        // backgroundPosition: 'center',
+        // width: '100%',
+        // height: '100%',
+        // position: 'relative' // // FIXME:Set position to relative for the background image to cover the entire scene
+        //   }}>
         {/* <div className='rain-scene' ref={containerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
         </div> */}
-        <group position-y={-4}><RainAvatar /></group> 
+        {/* <group position-y={-4}><RainAvatar /></group>  */} 
         <ambientLight intensity={1} />
+        <group position={[0, 0, -1]}>{raindropsRef.current.map((raindrop, index) => (<primitive key={index} object={raindrop} />
+        ))}
+        <RainAvatar />
+        </group>
       </Canvas>
+      </div>
       // FIXME: avatar position and movement load
 
   );
