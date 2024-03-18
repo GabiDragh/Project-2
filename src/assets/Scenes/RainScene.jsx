@@ -3,9 +3,10 @@
 import React, {useRef, useEffect } from 'react' //Import React and hooks from React
 import * as THREE from 'three' // Import Three.js
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader' // Import gltf loader to load avatar
-import RainBackground from '../images/RainBackground.png'
+import RainBackground from '../images/RainBackground.jpg'
 import RainAvatar  from './RainAvatar'
 import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 // import avatarRunning from '../../../public/models/Running.glb'
 
 
@@ -18,9 +19,9 @@ const raindropsRef = useRef([]);
 useEffect(() => {
     // Create the three.js scene
     const scene = new THREE.Scene(); //set up the scene
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
     const renderer = new THREE.WebGLRenderer(); //set up the renderer 
-    renderer.setSize( window.innerWidth, window.innerHeight ); //set the renderer size. Might need to adjust to /2 - half the resolution
+    renderer.setSize( window.innerWidth/2, window.innerHeight/2 ); //set the renderer size. Might need to adjust to /2 - half the resolution
     document.getElementById('hero').appendChild ( renderer.domElement ); //add the rendered element to the HTML (canvas element)
 
     // Raindrop geometry and material
@@ -40,10 +41,10 @@ useEffect(() => {
     camera.position.z = 4;
 
     // Add background image loader
-    const loader = new THREE.TextureLoader();
-    loader.load(RainBackground, (texture) => {
-        scene.background = texture;
-    })
+    // const loader = new THREE.TextureLoader();
+    // loader.load(RainBackground, (texture) => {
+    //     scene.background = texture;
+    // })
 
     // Create animation loop
     const animate = () => {
@@ -85,7 +86,7 @@ useEffect(() => {
   return (
 
     // FIXME: Add scene background - background image added but looking bad with the rain
-    <div id="hero">
+    <div>
     <Canvas shadows camera={{ position: [0, 2, 5], fov: 30}} >
     {/* // style={{ position: 'absolute', top: 0, left: 0
         // backgroundImage: `url(${RainBackground})`,
@@ -98,11 +99,12 @@ useEffect(() => {
         {/* <div className='rain-scene' ref={containerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
         </div> */}
         {/* <group position-y={-4}><RainAvatar /></group>  */} 
-        <ambientLight intensity={1} />
-        <group position={[0, 0, -1]}>{raindropsRef.current.map((raindrop, index) => (<primitive key={index} object={raindrop} />
-        ))}
-        <RainAvatar />
+        <OrbitControls />
+        <group position-y={-2}>
+            {raindropsRef.current.map((raindrop, index) => (<primitive key={index} object={raindrop} />))}
+        <RainAvatar /> 
         </group>
+        <ambientLight intensity={1} />
       </Canvas>
       </div>
       // FIXME: avatar position and movement load
