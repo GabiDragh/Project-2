@@ -45,7 +45,7 @@ const Hero = () => { //weatherData object destructuring prop in from API call - 
 
     // DONE: Return in browser
     return (
-        <div id ="hero">
+        <div id="hero">
             {/* Added asset to hero section */}
             {/* {assetScene} */}
             <RainScene />

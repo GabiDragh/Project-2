@@ -14,6 +14,7 @@ const RainScene = () => {
 // TODO: Create rain using three.js
 
 const raindropsRef = useRef([]);
+const rendererRef = useRef(null);
 
 
 useEffect(() => {
@@ -21,16 +22,23 @@ useEffect(() => {
     const scene = new THREE.Scene(); //set up the scene
     const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
     const renderer = new THREE.WebGLRenderer(); //set up the renderer 
-    renderer.setSize( window.innerWidth/2, window.innerHeight/2 ); //set the renderer size. Might need to adjust to /2 - half the resolution
+    renderer.setSize( window.innerWidth, window.innerHeight ); //set the renderer size. Might need to adjust to /2 - half the resolution
+    rendererRef.current = renderer;
     document.getElementById('hero').appendChild ( renderer.domElement ); //add the rendered element to the HTML (canvas element)
 
+    // Add background image loader
+    const loader = new THREE.TextureLoader();
+    loader.load(RainBackground, (texture) => {
+        scene.background = texture;
+    });
+
     // Raindrop geometry and material
-    const raindropGeometry = new THREE.SphereGeometry(0.005, 7, 7); //sphere radius, width and height
-    const raindropMaterial = new THREE.PointsMaterial({ color: 0x87ceeb, transparent: true }); //sphere material - basic SkyBlue 
+    const raindropGeometry = new THREE.SphereGeometry(0.01, 12, 12); //sphere radius, width and height
+    const raindropMaterial = new THREE.PointsMaterial({ color: 0x0082AA, transparent: true }); //sphere material - basic SkyBlue 
  
     // Create raindrops
     // const raindrops = [];
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 700; i++) {
         const raindrop = new THREE.Mesh(raindropGeometry, raindropMaterial); //Create raindrop mesh applying the geometry and material
         raindrop.position.set(Math.random() * 20 - 10, Math.random() * 20, Math.random() * 20 - 10); //initial position x, y, z coordinates
         raindropsRef.current.push(raindrop) ;//push elements in the array
@@ -39,12 +47,6 @@ useEffect(() => {
 
     // Set camera 
     camera.position.z = 4;
-
-    // Add background image loader
-    // const loader = new THREE.TextureLoader();
-    // loader.load(RainBackground, (texture) => {
-    //     scene.background = texture;
-    // })
 
     // Create animation loop
     const animate = () => {
@@ -77,8 +79,10 @@ useEffect(() => {
 
      // Cleanup
      return () => {
-        renderer.dispose();
+        if (rendererRef.current) {
+            rendererRef.current.dispose();
         // scene.dispose();
+        }
     };
 
 }, []);
@@ -86,28 +90,16 @@ useEffect(() => {
   return (
 
     // FIXME: Add scene background - background image added but looking bad with the rain
-    <div>
-    <Canvas shadows camera={{ position: [0, 2, 5], fov: 30}} >
-    {/* // style={{ position: 'absolute', top: 0, left: 0
-        // backgroundImage: `url(${RainBackground})`,
-        // backgroundSize: 'cover',
-        // backgroundPosition: 'center',
-        // width: '100%',
-        // height: '100%',
-        // position: 'relative' // // FIXME:Set position to relative for the background image to cover the entire scene
-        //   }}>
-        {/* <div className='rain-scene' ref={containerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-        </div> */}
-        {/* <group position-y={-4}><RainAvatar /></group>  */} 
+    <div id="hero">
+    <Canvas
+        style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}
+        camera={{ position: [0, 2, 5], fov: 30 }}
+    >
         <OrbitControls />
-        <group position-y={-2}>
-            {raindropsRef.current.map((raindrop, index) => (<primitive key={index} object={raindrop} />))}
-        <RainAvatar /> 
-        </group>
         <ambientLight intensity={1} />
-      </Canvas>
-      </div>
-      // FIXME: avatar position and movement load
+        <RainAvatar />
+    </Canvas>
+</div>
 
   );
 }

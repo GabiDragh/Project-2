@@ -21,14 +21,14 @@ const RainAvatar = (props) => {
 //     group.current.getObjectByName("Head").lookAt(state.camera.position); Head follow - not necessary
 //   });
 
-  useEffect(() => {
-    actions["Running"].reset().play();
+  useEffect(() => { 
+    actions["Running"].reset().play(); // Animation active
   }, []);
 
   return (
-    <a.group ref={group} {...props}>
+    <group ref={group} {...props}>
       <group name="Scene">
-        <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.03, 0.03, 0.3}>
+        <group name="Armature" rotation={[Math.PI / 2, 0, 1]} scale={0.005, 0.005, 0.005}>
           <skinnedMesh
             name="Ch03"
             geometry={nodes.Ch03.geometry}
@@ -38,7 +38,7 @@ const RainAvatar = (props) => {
           <primitive object={nodes.mixamorigHips} />
         </group>
       </group>
-    </a.group>
+    </group>
   )
 }
 
