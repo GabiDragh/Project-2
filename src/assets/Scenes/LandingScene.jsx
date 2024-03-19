@@ -16,6 +16,8 @@ import LandingAvatar from './LandingAvatar'
 const LandingScene = () => {
 // TODO: Create rain using three.js
 
+const rendererRef = useRef();
+
 
 useEffect(() => {
 
@@ -25,8 +27,11 @@ useEffect(() => {
     scene = new THREE.Scene(); //set up the scene
     camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
     renderer = new THREE.WebGLRenderer(); //set up the renderer 
-    renderer.setSize( window.innerWidth, window.innerHeight ); //set the renderer size. Might need to adjust to /2 - half the resolution
-    document.getElementById('hero').appendChild ( renderer.domElement ); //add the rendered element to the HTML (canvas element)
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    rendererRef.current = renderer;
+
+    const heroElement = document.getElementById('hero');
+    heroElement.appendChild(renderer.domElement);
 
     // DONE: Add scene background - background image added
     // Add background image loader
@@ -52,13 +57,12 @@ useEffect(() => {
 
     // FIXME: Cleanup - need ta help with the cleanup - atm, at every save a new canvas is created, keeping the old ones, outside of the hero div (they annoyingly still render under the hero section)
     return () => {
-        if (renderer) {
-        renderer.dispose();
-        };
-        // scene.dispose(); - tried this to clean the canvas scene rendering extra, but not successful 
-    };
-
-}, []);
+        if (rendererRef.current) {
+          rendererRef.current.dispose();
+          heroElement.removeChild(rendererRef.current.domElement);
+        }
+      };
+    }, []);
 
   return (
 
