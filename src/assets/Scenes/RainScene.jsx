@@ -75,7 +75,7 @@ useEffect(() => {
 
     // DONE: Add avatar - separate component created 
 
-    // FIXME: Cleanup - need ta help with the cleanup - atm, at every save a new canvas is created, keeping the old ones, outside of the hero div (they annoyingly still render under the hero section)
+    // DONE: Cleanup 
     return () => {
         if (rendererRef.current) {
         rendererRef.current.dispose();
