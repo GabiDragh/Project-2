@@ -15,16 +15,17 @@ const RainScene = () => {
 // TODO: Create rain using three.js
 
 const raindropsRef = useRef([]);
-const rendererRef = useRef(null);
 
 
 useEffect(() => {
+
+    let scene, camera, renderer;
+
     // Create the three.js scene
-    const scene = new THREE.Scene(); //set up the scene
-    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
-    const renderer = new THREE.WebGLRenderer(); //set up the renderer 
+    scene = new THREE.Scene(); //set up the scene
+    camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000); //set up the camera (field of view, aspect ratio, near and far clipping plane)
+    renderer = new THREE.WebGLRenderer(); //set up the renderer 
     renderer.setSize( window.innerWidth, window.innerHeight ); //set the renderer size. Might need to adjust to /2 - half the resolution
-    rendererRef.current = renderer;
     document.getElementById('hero').appendChild ( renderer.domElement ); //add the rendered element to the HTML (canvas element)
 
     // DONE: Add scene background - background image added
@@ -72,8 +73,8 @@ useEffect(() => {
 
     // FIXME: Cleanup - need ta help with the cleanup - atm, at every save a new canvas is created, keeping the old ones, outside of the hero div (they annoyingly still render under the hero section)
     return () => {
-        if (rendererRef.current) {
-        rendererRef.current.dispose();
+        if (renderer) {
+        renderer.dispose();
         };
         // scene.dispose(); - tried this to clean the canvas scene rendering extra, but not successful 
     };
@@ -83,7 +84,7 @@ useEffect(() => {
     // DONE:Add button handler
 
     const handleWeatherForecastClick = () => {
-        console.log('Weather forecast component link'); //FIXME: All link to component
+        console.log('Weather forecast component link'); //FIXME: Add link to component
     };
 
     const handleBookRecommendationsClick = () => {
@@ -102,20 +103,20 @@ useEffect(() => {
             <ambientLight intensity={3} />
             <RainAvatar style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}/>
         </Canvas>
-
+        
+        {/* // DONE: Add greeting message. OPTIONAL: ask if the user would like some recommendations */}
+        {/* FIXME: Needs better styling - try Tailwind? Tried Typewriter but couldn't make it work - maybe try another package? */}
        <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
-                <p style={{ fontSize: '24px', marginBottom: '20px' }}>Oh, no! It is pouring out here! Better stay indoors for now! Would you like to see the weather forecast or get book recommendations?</p>
+                <p style={{ fontSize: '24px', marginBottom: '20px' }}>Oh, no! It is pouring out here! Better stay indoors for now! Would you like me to give you the weather forecast or some book recommendations?</p>
                 <button onClick={handleWeatherForecastClick} style={{ fontSize: '18px', marginRight: '10px' }}>Weather Forecast</button>
                 <button onClick={handleBookRecommendationsClick} style={{ fontSize: '18px' }}>Book Recommendations</button>
-            </div>
+        </div>
     </div>
 
   );
 }
 
 export default RainScene
-
-// TODO: Add greeting message. OPTIONAL: ask if the user would like some recommendations
 
 // TODO: IF recommendations -> create json file to store links for suggestion websites (google/tripadvisor/daysout/audible for books/spotify for music etc)
 

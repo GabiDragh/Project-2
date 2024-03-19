@@ -5,7 +5,6 @@ Model downloaded from https://www.mixamo.com/#/?page=1&query=running -> saved as
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import Running from '/models/Running.glb?url'
-import { a } from '@react-spring/three'
 
 const RainAvatar = (props) => {
   const group = useRef();
