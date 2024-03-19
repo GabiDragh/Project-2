@@ -65,7 +65,7 @@ const LandingScene = () => {
             </Canvas>
             
             {/* FIXME: Needs better styling - try Tailwind? Tried Typewriter but couldn't make it work - maybe try another package? */}
-        <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
+            <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
                     <p style={{ fontSize: '24px', marginBottom: '20px' }}>Hey! I am WeatherRebel, your friend that has the latest information about weather and fun stuff to do depending on the outside conditions. To get started, please use the search bar so I can get the location you are interested in.</p>
             </div>
         </div>
