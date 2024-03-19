@@ -3,7 +3,8 @@ import React from 'react';
 
 // TODO: Import asset components (weather scenes)?
 
-import RainScene from '../assets/Scenes/RainScene';
+import LandingScene from '../assets/Scenes/LandingScene';
+// import RainScene from '../assets/Scenes/RainScene';
 
 
 const Hero = () => { //weatherData object destructuring prop in from API call - TODO: create component/take it from Jean or create a mock call to see some results!!!
@@ -48,7 +49,7 @@ const Hero = () => { //weatherData object destructuring prop in from API call - 
         <div id="hero">
             {/* Added asset to hero section */}
             {/* {assetScene} */}
-                <RainScene />
+                <LandingScene />
         </div>
 );
 

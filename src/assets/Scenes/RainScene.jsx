@@ -14,7 +14,7 @@ import { OrbitControls } from '@react-three/drei'
 const RainScene = () => {
 // TODO: Create rain using three.js
 
-const raindropsRef = useRef([]);
+const raindropsRef = useRef([]); 
 
 
 useEffect(() => {
