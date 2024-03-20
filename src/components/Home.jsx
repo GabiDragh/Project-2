@@ -4,13 +4,13 @@ import Cards from './Cards';
 import Hero from './Hero';
 import Navbar from './Navbar/Navbar';
 import Footer1 from './Footer1';
-import Weather from '../assets/utils/Weather';
+
 
 
 const Home = () => (
     <>
         <Navbar/>
-        <Weather/>
+        {/* <Weather/> */}
         <Hero/>
         <Cards/>
         <Footer1/>
