@@ -8,9 +8,6 @@ import RainAvatar  from './RainAvatar'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 
-// import avatarRunning from '../../../public/models/Running.glb'
-
-
 const RainScene = () => {
 // DONE: Create rain using three.js
 
@@ -61,8 +58,8 @@ useEffect(() => {
 
         // Update raindrop positions
         raindropsRef.current.forEach((raindrop) => {
-            raindrop.position.y -= 0.1;
-            if (raindrop.position.y < -5) {
+            raindrop.position.y -= 0.15;
+            if (raindrop.position.y < -10) {
                 raindrop.position.y = 20;
             }
         });
