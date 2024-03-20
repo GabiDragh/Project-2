@@ -116,7 +116,7 @@ Find below our contributing guidelines. By following these guidelines, you'll he
 ### The WeatherRebel Collaborators:
 - Gabi  - GitHub: 
 - Sherin  - Github:
-- Mohammed  - Github: 
+- Mohammed  - Github: https://github.com/mohammed45a
 - Maciej  - Github: 
 - Jean Marwizi 	- Github: https://github.com/Jean-003
 
