@@ -8,7 +8,7 @@ import React from 'react';
 const footer1=()=>{
     return (
         <div className='footer1'>
-            <div className='sb_footer1 section__padding'>
+            <div className='sb_footer1 section_padding'>
                 <div className='sb_footer1-links'>
                     <div className='sb_footer1-links-div'>
                         <h4>Weather Rebel</h4>
