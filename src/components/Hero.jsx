@@ -7,8 +7,8 @@ import React from 'react';
 // import SunnyScene from '../assets/Scenes/SunnyScene.jsx'
 // import CloudyScene from '../assets/Scenes/CloudyScene.jsx'
 // import RainScene from '../assets/Scenes/RainScene.jsx'
-import SnowScene from '../assets/Scenes/SnowScene.jsx'
-// import StormScene from '../assets/Scenes/StormScene.jsx'
+// import SnowScene from '../assets/Scenes/SnowScene.jsx'
+import StormScene from '../assets/Scenes/StormScene.jsx'
 
 
 
@@ -56,7 +56,7 @@ const Hero = () => { //weatherData object destructuring prop in from API call - 
             {/* Added asset to hero section */}
             {/* {assetScene} */}
 
-                <SnowScene />
+                <StormScene />
                 
         </div>
 );

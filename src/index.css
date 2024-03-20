@@ -24,7 +24,7 @@ body {
 }
 
 
-#hero {
+ #hero {
   text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -36,9 +36,9 @@ body {
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
   
-}
+ } 
 
 .col {
   text-align: center;
@@ -87,16 +87,3 @@ body {
   from { width: 0; }
 }
 
-.animate-typewriter {
-  display: inline-block;
-  overflow: hidden;
-  border-right: .15em solid orange; /* Change the color as needed */
-  white-space: nowrap;
-  margin: 0 auto;
-  animation: type 1s steps(40, end), blink-caret .75s step-end infinite;
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: orange; } /* Change the color as needed */
-}
