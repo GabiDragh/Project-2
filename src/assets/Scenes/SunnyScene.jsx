@@ -74,7 +74,6 @@ const SunnyScene = () => {
                 {/* <OrbitControls />  */}
                 <ambientLight intensity={3} />
                 <SunnyAvatar style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}/>
-               
             </Canvas>
             
             

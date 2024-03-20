@@ -3,9 +3,14 @@ import React from 'react';
 
 // TODO: Import asset components (weather scenes)?
 
-// import LandingScene from '../assets/Scenes/LandingScene';
-// import RainScene from '../assets/Scenes/RainScene';
-import SunnyScene from '../assets/Scenes/SunnyScene';
+// import LandingScene from '../assets/Scenes/LandingScene.jsx'
+// import SunnyScene from '../assets/Scenes/SunnyScene.jsx'
+import CloudyScene from '../assets/Scenes/CloudyScene.jsx'
+// import RainScene from '../assets/Scenes/RainScene.jsx'
+// import SnowScene from '../assets/Scenes/SnowScene.jsx'
+// import StormScene from '../assets/Scenes/StormScene.jsx'
+
+
 
 
 const Hero = () => { //weatherData object destructuring prop in from API call - TODO: create component/take it from Jean or create a mock call to see some results!!!
@@ -50,12 +55,12 @@ const Hero = () => { //weatherData object destructuring prop in from API call - 
         <div id="hero">
             {/* Added asset to hero section */}
             {/* {assetScene} */}
-                
-                <SunnyScene />
+
+                <CloudyScene />
                 
         </div>
 );
 
 };
 
-export default Hero;
+export default Hero
