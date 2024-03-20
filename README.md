@@ -117,13 +117,14 @@ Find below our contributing guidelines. By following these guidelines, you'll he
 - Gabriela Draghici  - GitHub: https://github.com/GabiDragh 
 - Sherin Binmy  - Github: https://github.com/SherinBinny
 - Mohammed Aboobakar - Github: https://github.com/mohammed45a
-- Maciej Sobolewski - Github: https//github.com/SobolewskiMaciej
+- Maciej Sobolewski - Github: https://github.com/SobolewskiMaciej
 - Jean Marwizi 	- Github: https://github.com/Jean-003
 
 ### Special thanks to:
 
 - Junghoon Yoon
 - Sowmiyaa
+- Seb
 
 **For their invaluable guidance and assistance with this project.**
 
