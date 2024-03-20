@@ -52,13 +52,13 @@ https://github.com/GabiDragh/Project-2
 
 ## Installation instructions
 
-- Install ... and your preferred IDE.
+- Install  your preferred IDE.
 - In terminal or Gitbash, navigate to the directory you want to copy the repository into. 
 - Run the command ```git clone git@github.com:GabiDragh/Project-2.git```
 - Run the command **git pull** to ensure you have the latest version.
 - Open the project in the preferred IDE such as Visual Studio Code.
 - In the intergrated terminal, start by running the command ```npm install``` to install all the necessary dependencies for this project.
-- Next ....
+- Next run the command ```npm run dev``` to start the application in the browser.
 
 ## Usage
 
@@ -114,10 +114,10 @@ Find below our contributing guidelines. By following these guidelines, you'll he
 ## Credits and Acknowledgements
 
 ### The WeatherRebel Collaborators:
-- Gabi  - GitHub: 
-- Sherin  - Github:
-- Mohammed  - Github: 
-- Maciej  - Github: 
+- Gabriela Draghici  - GitHub: https://github.com/GabiDragh 
+- Sherin Binmy  - Github: https://github.com/SherinBinny
+- Mohammed Aboobakar - Github: https://github.com/mohammed45a
+- Maciej Sobolewski - Github: https//github.com/SobolewskiMaciej
 - Jean Marwizi 	- Github: https://github.com/Jean-003
 
 ### Special thanks to:
