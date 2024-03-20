@@ -1,4 +1,4 @@
-import './footer1.css';
+import './Footer1.css';
 import fb from '../assets/images/facebook.png'
 import twitter from '../assets/images/twitter.png'
 import linkedin from '../assets/images/linkedin.png'
