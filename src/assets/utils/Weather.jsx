@@ -1,44 +1,62 @@
-import ReactWeather, { useOpenWeather } from "react-open-weather";
-import {
-  setKey,
-  setDefaults,
-  fromAddress,
-  geocode,
-  RequestType,
-} from "react-geocode";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Weather = () => {
-  
-  setDefaults({
-    key: "AIzaSyC9qEaUqvbwazBZScpgJ_CZcXU5jbF1OU4", 
-    language: "en", 
-  });
+  const [city, setCity] = useState('');
+  const [weatherData, setWeatherData] = useState(null);
 
-  // Getting latitude & longitude from address.
-  fromAddress("Eiffel Tower")
-    .then(({ results }) => {
-      const { lat, lng } = results[0].geometry.location;
-      console.log(lat, lng);
-      const { data, isLoading, errorMessage } = useOpenWeather({
-        key: "cf98f413c40be2f82a74ed0fd421bb0c",
-        lat: lat,
-        lon: lon,
-        lang: "en",
-        unit: "metric", 
-      });
-      return (
-        <ReactWeather
-          isLoading={isLoading}
-          errorMessage={errorMessage}
-          data={data}
-          lang="en"
-          locationLabel="Munich"
-          unitsLabels={{ temperature: "C", windSpeed: "Km/h" }}
-          showForecast
-        />
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=1b3ccbbbecb0224059af59271277bfd6`
+        // `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}&appid={API key}`
       );
-    })
-    .catch(console.error);
+      setWeatherData(response.data);
+      console.log(response.data); //You can see all the weather data in console log
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleInputChange = (e) => {
+    setCity(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetchData();
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter city name"
+          value={city}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Get Weather</button>
+      </form>
+      {weatherData ? (
+        <>
+          <h2>{weatherData.name}</h2>
+          <p>Temperature: {weatherData.main.temp}°C</p>
+          <p>Description: {weatherData.weather[0].description}</p>
+          <p>Feels like : {weatherData.main.feels_like}°C</p>
+          <p>Humidity : {weatherData.main.humidity}%</p>
+          <p>Pressure : {weatherData.main.pressure}</p>
+          <p>Wind Speed : {weatherData.wind.speed}m/s</p>
+        </>
+      ) : (
+        <p>Loading weather data...</p>
+      )}
+    </div>
+  );
 };
 
 export default Weather;
