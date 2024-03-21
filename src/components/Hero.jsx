@@ -1,7 +1,7 @@
 import React from 'react';
 // import weatherMock from '../services/weatherMock';
 
-// TODO: Import asset components (weather scenes)?
+// DONE: Import asset components (weather scenes)
 
 // import LandingScene from '../assets/Scenes/LandingScene.jsx'
 // import SunnyScene from '../assets/Scenes/SunnyScene.jsx'
@@ -13,7 +13,7 @@ import StormScene from '../assets/Scenes/StormScene.jsx'
 
 
 
-const Hero = () => { //weatherData object destructuring prop in from API call - TODO: create component/take it from Jean or create a mock call to see some results!!!
+const Hero = () => { //weatherData object destructuring prop in from API call
     // const weatherData = weatherMock('New York');
 
     // const skyText = weatherData[0].current.skytext; //check weather API for the skytext position - weather-js data returns it as written here, FIXME: but will have to change if different API used
