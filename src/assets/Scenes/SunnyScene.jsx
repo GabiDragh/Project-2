@@ -2,7 +2,6 @@ import React, {useRef, useEffect } from 'react' //Import React and hooks from Re
 import * as THREE from 'three' // Import Three.js
 import SunnyBackground from '../images/SunnyBackground.jpg'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 import SunnyAvatar from './SunnyAvatar'
 
 
@@ -15,6 +14,18 @@ const SunnyScene = () => {
     useEffect(() => {
 
         let scene, camera, renderer;
+
+               // Added function to adjust background image size when window resizes
+
+               const handleWindowResize = () => {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+    
+                renderer.setSize(width, height);
+    
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+            };
 
         // Create the three.js scene
         scene = new THREE.Scene(); //set up the scene
@@ -29,6 +40,7 @@ const SunnyScene = () => {
         // Add scene background
         const loader = new THREE.TextureLoader();
         loader.load(SunnyBackground, (texture) => {
+            texture.minFilter = THREE.LinearFilter; //filter added to insure the texture keeps quality
             scene.background = texture;
         });
 
@@ -45,8 +57,14 @@ const SunnyScene = () => {
 
         animate(); 
 
+        // Event listener to adjust background when window is resized
+        window.addEventListener('resize', handleWindowResize);
+
         // Cleanup 
         return () => {
+
+            window.removeEventListener('resize', handleWindowResize);
+
             if (rendererRef.current) {
             rendererRef.current.dispose();
             heroElement.removeChild(rendererRef.current.domElement);
@@ -55,10 +73,6 @@ const SunnyScene = () => {
         }, []);
 
         // DONE:Add button handler
-
-    const handleWeatherForecastClick = () => {
-        console.log('Weather forecast component link'); //FIXME: Add link to component
-    };
 
     const handleBookRecommendationsClick = () => {
         console.log('Book recommendations link');
@@ -69,19 +83,16 @@ const SunnyScene = () => {
 
         <div id="hero">
             <Canvas
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}}
+                style={{ position: 'absolute', top: 90, left: 0, width: '100%', height: '100%', zIndex: 0}}
                 camera={{ position: [0, 2, 4], fov: 30 }}>
                 {/* <OrbitControls />  */}
                 <ambientLight intensity={3} />
                 <SunnyAvatar style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}/>
             </Canvas>
             
-            
-            {/* FIXME: Needs better styling - try Tailwind? Tried Typewriter but couldn't make it work - maybe try another package? */}
-            <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
-                <p style={{ fontSize: '24px', marginBottom: '20px' }}>Yay! All nice and sunny out here! Want to go out exploring? I have some great suggestions for you!</p>
-                <button onClick={handleWeatherForecastClick} style={{ fontSize: '18px', marginRight: '10px' }}>Weather Forecast</button>
-                <button onClick={handleBookRecommendationsClick} style={{ fontSize: '18px' }}>Let's go outside!</button>
+            <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
+                <p className="text-xl md:text-2xl mb-4">Yay! All nice and sunny out here! Want to go out exploring? I have some great suggestions for you!</p>
+                <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Let's go outside!</button>
         </div>
         </div>
 
