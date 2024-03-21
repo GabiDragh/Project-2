@@ -70,21 +70,11 @@ const Weather = () => {
           placeholder="Enter city name"
           value={city}
           onChange={handleInputChange}
+          className='form'
         />
         <button type="submit">Get Weather</button>
       </form>
       <WeatherCarousel weatherData={weatherData} />
-      {/* {weatherData && weatherData.map(forecast => (
-                    <div key={forecast.date}>
-                        <h2>{forecast.date}</h2>
-                        <p>Temperature: {forecast.temperature}°C</p>
-                        <p>Description: {forecast.description}</p>
-                        <p>Feels like : {forecast.feels_like}°C</p>
-                        <p>Humidity : {forecast.humidity}%</p>
-                        <p>Pressure : {forecast.pressure}</p>
-                        <p>Wind Speed : {forecast.wind_speed}m/s</p>
-                    </div>
-                ))} */}
     </div>
   );
 };

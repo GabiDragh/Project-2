@@ -5,3 +5,10 @@
     margin: 5px;
     height: 300px;
   }
+
+
+  .form
+  {
+    z-index: 1000;
+    position: relative;
+  }

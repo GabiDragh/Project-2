@@ -10,10 +10,10 @@ import Footer from './Footer';
 const Home = () => (
     <>
         <Navbar/>
-        {/* <Weather/> */}
         <Hero/>
-        <Cards/>
-        <Footer1/>
+        {/* <Cards/> */}
+        <Weather/>
+        <Footer/>
        
     </>
 );
