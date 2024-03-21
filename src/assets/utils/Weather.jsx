@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import WeatherCarousel from './WeatherCarousel';
+import { useSharedContext } from '../../SharedContext';
 
 const Weather = () => {
   const [city, setCity] = useState('');
   const [weatherData, setweatherData] = useState([]);
+  const { inputValue } = useSharedContext();
 
   const apiKey = '1b3ccbbbecb0224059af59271277bfd6';
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&units=metric&appid=${apiKey}`;
 
   const fetchData = async () => {
     try {
@@ -67,15 +69,9 @@ const Weather = () => {
     <div>
       <h1>Weather Forecast</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleInputChange}
-          className='form'
-        />
         <button type="submit">Get Weather</button>
       </form>
+      <p>Display weather information for {inputValue}</p>
       <WeatherCarousel weatherData={weatherData} />
     </div>
   );
