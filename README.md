@@ -115,7 +115,7 @@ Find below our contributing guidelines. By following these guidelines, you'll he
 
 ### The WeatherRebel Collaborators:
 - Gabriela Draghici  - GitHub: https://github.com/GabiDragh 
-- Sherin Binmy  - Github: https://github.com/SherinBinny
+- Sherin Binny  - Github: https://github.com/SherinBinny
 - Mohammed Aboobakar - Github: https://github.com/mohammed45a
 - Maciej Sobolewski - Github: https://github.com/SobolewskiMaciej
 - Jean Marwizi 	- Github: https://github.com/Jean-003
