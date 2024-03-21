@@ -3,19 +3,52 @@ import axios from 'axios';
 
 const Weather = () => {
   const [city, setCity] = useState('');
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setweatherData] = useState(null);
+
+  const apiKey = '1b3ccbbbecb0224059af59271277bfd6';
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=1b3ccbbbecb0224059af59271277bfd6`        
-      );
-      setWeatherData(response.data);
-      console.log(response.data); //You can see all the weather data in console log
-    } catch (error) {
-      console.error(error);
+      const response = await axios.get(apiUrl);
+      console.log(response.data);
+      const weatherData = response.data;
+      const dailyForecasts = groupForecastByDay(weatherData.list);
+      
+      const next7Days = Object.keys(dailyForecasts).slice(0, 7);
+
+      setweatherData(next7Days.map(day => {
+          const middleForecastIndex = Math.floor(dailyForecasts[day].length / 2);
+          const middleForecast = dailyForecasts[day][middleForecastIndex];
+          return {
+              date: day,
+              temperature: middleForecast.main.temp,
+              description: middleForecast.weather[0].description,
+              feels_like: middleForecast.main.feels_like,
+              humidity: middleForecast.main.humidity,
+              pressure: middleForecast.main.pressure,
+              wind_speed: middleForecast.wind.speed
+          };
+      }));
+    }
+    catch (error) {
+      console.error('Error fetching forecast:', error);
     }
   };
+
+
+  function groupForecastByDay(forecasts) {
+    const dailyForecasts = {};
+    forecasts.forEach(forecast => {
+        const date = new Date(forecast.dt * 1000);
+        const day = date.toDateString();
+        if (!dailyForecasts[day]) {
+            dailyForecasts[day] = [];
+        }
+        dailyForecasts[day].push(forecast);
+    });
+    return dailyForecasts;
+}
 
 
   const handleInputChange = (e) => {
@@ -38,21 +71,19 @@ const Weather = () => {
         />
         <button type="submit">Get Weather</button>
       </form>
-      {weatherData ? (
-        <>
-          {/* <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp}°C</p>
-          <p>Description: {weatherData.weather[0].description}</p>
-          <p>Feels like : {weatherData.main.feels_like}°C</p>
-          <p>Humidity : {weatherData.main.humidity}%</p>
-          <p>Pressure : {weatherData.main.pressure}</p>
-          <p>Wind Speed : {weatherData.wind.speed}m/s</p> */}
-        
-        {/* <Card data= {weatherData} id="today" /> */}
-        </>
-      ) : (
-        <p>Loading weather data...</p>
-      )}
+      <div>
+      {weatherData && weatherData.map(forecast => (
+                    <div key={forecast.date}>
+                        <h2>{forecast.date}</h2>
+                        <p>Temperature: {forecast.temperature}°C</p>
+                        <p>Description: {forecast.description}</p>
+                        <p>Feels like : {forecast.feels_like}°C</p>
+                        <p>Humidity : {forecast.humidity}%</p>
+                        <p>Pressure : {forecast.pressure}</p>
+                        <p>Wind Speed : {forecast.wind_speed}m/s</p>
+                    </div>
+                ))}
+            </div>
     </div>
   );
 };
