@@ -72,7 +72,7 @@ const Weather = () => {
         <button type="submit">Get Weather</button>
       </form>
       <div>
-        {/* test */}
+     
       {weatherData && weatherData.map(forecast => (
                     <div key={forecast.date}>
                         <h2>{forecast.date}</h2>
