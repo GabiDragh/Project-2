@@ -4,7 +4,7 @@ import SunnyBackground from '../images/SunnyBackground.jpg'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import SunnyAvatar from './SunnyAvatar'
-import SunSpinning from './SunSpinning'
+
 
 // DONE: Create scene using three.js
 
