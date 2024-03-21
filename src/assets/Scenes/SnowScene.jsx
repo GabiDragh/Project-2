@@ -146,10 +146,10 @@ const SnowScene = () => {
 
         // DONE:Add button handler
 
-    const handleBookRecommendationsClick = () => {
-        console.log('Book recommendations link');
-        // window.open('https://www.tripadvisor.co.uk/Search?&q=Snow%20day%20in%20'${{ searchInput }}'', '_blank'); //Add search input field from navbar - add id in navbar
-    };
+        const handleBookRecommendationsClick = () => {
+            console.log('Book recommendations link');
+            window.open('https://www.skiresort.info/ski-resorts/europe/', '_blank');
+        };
 
      return (
 

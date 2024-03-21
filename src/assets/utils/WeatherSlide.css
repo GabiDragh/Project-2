@@ -1,0 +1,47 @@
+.date, .temp, .desc, .feels, .humid, .pressure, .wind
+{
+    color: #fff;
+    margin: 0;
+}
+
+.date
+{
+    font-size: 14px;
+    margin-top: 10px;
+    
+}
+
+.temp
+{
+    display: flex;
+    justify-content: space-between;
+    font-size: 45px;
+    margin: 10px 0;
+}
+
+.desc
+{
+    font-size: 23px;
+    text-transform: capitalize;
+}
+
+.feels
+{
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.humid, .pressure, .wind
+{
+    display: flex;
+    font-size: 14px;
+}
+
+.humid img, .pressure img, .wind img
+{
+    margin-right: 10px;
+}
+
+
+
+
