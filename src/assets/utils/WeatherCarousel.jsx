@@ -7,11 +7,11 @@ import  "./WeatherCarousel.css"
 
 const WeatherCarousel = ({ weatherData }) => {
   const settings = {
-    dots: true,
-    infinite: true,
+    dots: false,
+    infinite: false,
     speed: 500,
-    slidesToShow: 7,
-    slidesToScroll: 1
+    slidesToShow: 6,
+    slidesToScroll: 0
   };
 
   if (!weatherData) {

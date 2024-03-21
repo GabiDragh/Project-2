@@ -16,12 +16,12 @@ const Weather = () => {
       const weatherData = response.data;
       const dailyForecasts = groupForecastByDay(weatherData.list);
       
-      const next7Days = Object.keys(dailyForecasts).slice(0, 7);
+      const next6Days = Object.keys(dailyForecasts).slice(0, 6);
 
-      setweatherData(next7Days.map(day => {
+      setweatherData(next6Days.map(day => {
           const middleForecastIndex = Math.floor(dailyForecasts[day].length / 2);
           const middleForecast = dailyForecasts[day][middleForecastIndex];
-          return {
+          const mappedData = {
               date: day,
               temperature: middleForecast.main.temp,
               description: middleForecast.weather[0].description,
@@ -30,6 +30,8 @@ const Weather = () => {
               pressure: middleForecast.main.pressure,
               wind_speed: middleForecast.wind.speed
           };
+          console.log(mappedData);
+          return mappedData
       }));
     }
     catch (error) {
