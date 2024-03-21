@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import WeatherCarousel from './WeatherCarousel';
 
 const Weather = () => {
   const [city, setCity] = useState('');
-  const [weatherData, setweatherData] = useState(null);
+  const [weatherData, setweatherData] = useState([]);
 
   const apiKey = '1b3ccbbbecb0224059af59271277bfd6';
   const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
@@ -72,9 +73,8 @@ const Weather = () => {
         />
         <button type="submit">Get Weather</button>
       </form>
-      <div>
-     
-      {weatherData && weatherData.map(forecast => (
+      <WeatherCarousel weatherData={weatherData} />
+      {/* {weatherData && weatherData.map(forecast => (
                     <div key={forecast.date}>
                         <h2>{forecast.date}</h2>
                         <p>Temperature: {forecast.temperature}°C</p>
@@ -84,8 +84,7 @@ const Weather = () => {
                         <p>Pressure : {forecast.pressure}</p>
                         <p>Wind Speed : {forecast.wind_speed}m/s</p>
                     </div>
-                ))}
-            </div>
+                ))} */}
     </div>
   );
 };

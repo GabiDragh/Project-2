@@ -1,5 +1,4 @@
 import React from 'react';
-import Weather from '../assets/utils/Weather';
 
 
 const Hero = () => (
@@ -9,7 +8,6 @@ const Hero = () => (
                 WeatherRebel 3D Animation here
             </p>
         </div>
-        <Weather/>
     </>
 );
 

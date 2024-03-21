@@ -1,49 +1,95 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import  "./Footer.css"
+import './Footer.css';
+import fb from '../assets/images/facebook.png'
+import twitter from '../assets/images/twitter.png'
+import linkedin from '../assets/images/linkedin.png'
+import github from '../assets/images/github.png'
+import React from 'react';
 
-function Footer() {
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 7,
-    slidesToScroll: 7
-  };
+const Footer=()=>{
+    return (
+        <div className='footer1'>
+            <div className='sb_footer1 section_padding'>
+                <div className='sb_footer1-links'>
+                    <div className='sb_footer1-links-div'>
+                        <h4>Weather Rebel</h4>
+                        <a href='/application'>
+                            <p> Application</p>
+                            </a>
+                            <a href='pricing'>
+                                <p>Pricing</p>
+                                </a>
+                                <a href='/features'>
+                                    <p>Features</p>
+                        </a>
+                    </div>
+                    <div className='sb_footer1-links_div'>
+                        <h4>About</h4>
+                        <a href='/about'>
+                            <p>??</p>
+                            </a>
+                            <a href='/about'>
+                            <p> ?? </p>
+                            </a>
+                            <a href='/about'>
+                            <p>Help Centre</p>
+                            </a>
+                    </div>
+                    <div className='sb_footer1-links_div'>
+                        <h4>Partners</h4>
+                        <a href='/partners'>
+                            <p>Gabi</p>
+                            <p>Maciej</p>
+                            <p>Jean</p>
+                            <p>Sherin</p>
+                            <p>Mohammed</p>
+                        </a>
 
-const boxNumbers = Array.from({ length: 14 }, (_, index) => index + 1);
+                    </div>
+                    <div className='sb_footer1-links_div'>
+                        <h4>Company</h4>
+                        <a href='/about'>
+                            <p>About</p>
+                            </a>
+                            <a href='/press'>
+                            <p>Press</p>
+                            </a>
+                            <a href='/career'>
+                            <p>Careers</p>
+                            </a>
+                            <a href='/contact'>
+                            <p>Contact</p>
+                            </a>
+                            </div>
+                            <div className='sb_footer1-links_div'>
+                                <h4>Coming soon on</h4>
+                                <div className='socialmedia'>
+                                    <p><img src={fb} alt=''/></p>
+                                    <p><img src={twitter} alt=''/></p>
+                                    <p><img src={linkedin} alt=''/></p>
+                                    <p><img src={github} alt=''/></p>
+                                </div>
+                            </div>
+                    </div>
 
-  return (
-    <Slider {...settings}>
-      {boxNumbers.map((number) => (
-        <div key={number} className="box">
-          <h3>{number}</h3>
-        </div>
-      ))}
-    </Slider>
-  );
+                    <hr></hr> {/* break between elements */}
+
+                    <div className='sb_footer1-below'>
+                        <div className='sb_footer1-copyright'>
+                            <p>
+                                @2024 Group10. All rights reserved.
+                            </p>
+                        </div>
+                        <div className='sb_footer1-below-links'>
+                            <a href='/terms'><div><p>Terms and Conditions</p></div></a>
+                            <a href='/privacy'><div><p>Privacy</p></div></a>
+                            <a href='/security'><div><p>Security</p></div></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+    )
 }
 
-export default Footer
-
-// const Footer = () => (
-//   <>
-//     <div>
-//       <div className="row">
-//       <div className="col">Tonight</div>
-//         <div className="col">Friday</div>
-//         <div className="col">Saturday</div>
-//         <div className="col">Sunday</div>
-//         <div className="col">Monday</div>
-//         <div className="col">Tuesday</div>
-//         <div className="col">Wednesday</div>
-//         <div className="col">Thursday</div>
-//       </div>
-//     </div>
-//   </>
-// );
-
-// export default Footer;
-
+export default Footer;
