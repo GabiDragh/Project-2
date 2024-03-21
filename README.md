@@ -11,18 +11,27 @@
 
 ## Project Description
 
-This project utilised JavaScript, Node.js, and the React Library to build a client-side single-page application ...
+We employed JavaScript, Node.js, and the React Library to build a client-side single-page weather application that provides users with a 7-day forecast for the city or country of their preference.
 
 
-The motivation behind this project was to deepen our understanding of developing a front-end application using JavaScript, the React library in conjunction with Three.js ...
+The motivation behind this project was to deepen our understanding of developing a fully functional front-end web application using JavaScript, the React library in conjunction with Three.js and other technologies.
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Threejs](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Mocha](https://img.shields.io/badge/-mocha-%238D6748?style=for-the-badge&logo=mocha&logoColor=white)
 
 
 
-**The names and versions of any libraries used:**
+**The names and versions of any platforms and libraries used:**
 
 - React 18.2.0
 - Bootstrap 5.3.3
-- Three.js - -
+- Three.js 
 
 
 ### MVP
@@ -43,7 +52,7 @@ The motivation behind this project was to deepen our understanding of developing
 
 
 
-### The URL of the deplyed app using Netlify:
+### The URL of the deployed app using Netlify:
 
 
 ### The URL of the GitHub repository that contains the code:
@@ -61,10 +70,13 @@ https://github.com/GabiDragh/Project-2
 - Next run the command ```npm run dev``` to start the application in the browser.
 
 ## Usage
+To access the weather forecast for any country or city, simply enter the name in the search box located in the top-left corner of the webpage. The current weather, along with a suggestion from our charming Weather Rebel mascot, will be displayed in the main/hero section of the webpage. The forecast for the next seven days will appear in the carousel just below the main section.
 
+For testing the responsiveness of our website across different screen sizes:
 
-
-
+1. Open the Chrome DevTools by pressing Control+Shift+I (Windows) or Command+Option+I (macOS). This will open a console panel to the side or below the webpage in your browser.
+2. Look for the devices icon situated to the left of the 'Elements' button within the DevTools panel.
+3. You can manually input a specific size to test responsiveness, or click on the 'Dimensions' button, usually located just below the website URL, and select a device from the dropdown list to emulate its screen size.
 
 
 ### Images displaying the the WeatherRebel App in the browser:
@@ -92,7 +104,7 @@ https://github.com/GabiDragh/Project-2
 
 ## Contributing Instructions
 
-We appreciate your interest in contributing to the WeatherRebel Project. We welcome contributions of all kinds, from bug reports and documentation improvements to new features and code changes.
+We appreciate your interest in contributing to the Weather Rebel Project. We welcome contributions of all kinds, from bug reports and documentation improvements to new features and code changes.
 
 Find below our contributing guidelines. By following these guidelines, you'll help us to maintain a high quality codebase and make the review process smoother for everyone.
 

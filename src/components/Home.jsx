@@ -3,19 +3,21 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Cards from './Cards';
 import Hero from './Hero';
 import Navbar from './Navbar/Navbar';
-import Footer1 from './Footer1';
-
-
+import Weather from '../assets/utils/Weather';
+import Footer from './Footer';
+import { SharedProvider } from '../SharedContext';
+// import SimpleSlider from "./components/Footer";
 
 
 const Home = () => (
     <>
+    <SharedProvider>
         <Navbar/>
-        {/* <Weather/> */}
         <Hero/>
-        <Cards/>
-        <Footer1/>
-       
+        {/* <Cards/> */}
+        <Weather/>
+        <Footer/>
+        </SharedProvider>   
     </>
 );
 

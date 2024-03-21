@@ -1,66 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import weatherMock from '../services/weatherMock';
 
 // DONE: Import asset components (weather scenes)
 
-// import LandingScene from '../assets/Scenes/LandingScene.jsx'
-// import SunnyScene from '../assets/Scenes/SunnyScene.jsx'
-// import CloudyScene from '../assets/Scenes/CloudyScene.jsx'
-// import RainScene from '../assets/Scenes/RainScene.jsx'
-// import SnowScene from '../assets/Scenes/SnowScene.jsx'
+import LandingScene from '../assets/Scenes/LandingScene.jsx'
+import SunnyScene from '../assets/Scenes/SunnyScene.jsx'
+import CloudyScene from '../assets/Scenes/CloudyScene.jsx'
+import RainScene from '../assets/Scenes/RainScene.jsx'
+import SnowScene from '../assets/Scenes/SnowScene.jsx'
 import StormScene from '../assets/Scenes/StormScene.jsx'
+import PropTypes from 'prop-types';
 
 
 
-
-const Hero = () => { //weatherData object destructuring prop in from API call
-    // const weatherData = weatherMock('New York');
-
-    // const skyText = weatherData[0].current.skytext; //check weather API for the skytext position - weather-js data returns it as written here, FIXME: but will have to change if different API used
-    // console.log(skyText);
-    
+const Hero = ({ skyCode }) => { 
+ 
     // DONE: Function to navigate through the sky text and return asset component
 
-    // const callAsset = (skyText) => {
+    const callAsset = (skyCode) => {
 
-    //     // Define variable to store simplified sky text information
-    //     const currentSky = skytext.toLowerCase().replace(/(mostly | partly)\s+/g, ''); //replace keywords as mostly, cloudy, and the whitespace from the skytext
-    //     console.log(currentSky);
+
+    const sunny = [800];
+    const cloudy = [801, 802, 803, 804];
+    const rain = [300, 301, 302, 310, 311, 312, 313, 314, 321, 500, 501, 502, 503, 504, 511, 520, 521, 522, 531];
+    const snow = [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622];
+    const storm = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232];
+    const athmosphere = [701, 711, 721, 731, 741, 751, 761, 762, 771, 781];
 
     //     // DONE: Add swithcase statement that returns assest component based on simplified text from sky text
-    //     switch (currentSky) {
-    //         // case 'sunny':
-    //         //     return <SunnyScene />;
-    //         // case 'clear':
-    //         //     return <ClearScene />
-    //         // case 'cloudy':
-    //         //     return <CloudyScene />;
-    //         case 'rain':
-    //             return <RainScene />;
-    //         // case 'snow':
-    //         //     return <SnowScene />;
-    //         // case 'storms':
-    //         //     return <StormScene />;
-    //         // FIXME: possible other cases? Weather APi dependent
-    //         default:
-    //             return 'Oops! Apologies, it seems I am having trouble processing that!'
-    //     }
-    
-
-    // DONE: Define variable to store the asset
-    // const assetScene = callAsset(skyText);
+        switch (true) {
+            case sunny.includes(skyCode):
+                return <SunnyScene />; 
+            case cloudy.includes(skyCode):
+                return <CloudyScene />;
+            case rain.includes(skyCode):
+                return <RainScene />;
+            case snow.includes(skyCode):
+                return <SnowScene />;
+            case storm.includes(skyCode):
+                return <StormScene />;
+            // FIXME: possible other cases? Weather APi dependent
+            default:
+                return <LandingScene />
+        }
+    };
 
     // DONE: Return in browser
     return (
         <div id="hero">
-            {/* Added asset to hero section */}
-            {/* {assetScene} */}
 
-                <StormScene />
+           {callAsset(skyCode)}
                 
         </div>
 );
 
 };
+
+Hero.propTypes = {
+    skyCode: PropTypes.number.isRequired, 
+  };
 
 export default Hero

@@ -2,11 +2,9 @@
 
 import React, {useRef, useEffect } from 'react' //Import React and hooks from React
 import * as THREE from 'three' // Import Three.js
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader' // Import gltf loader to load avatar - not using it since I created the separate component
 import RainBackground from '../images/RainBackground.jpg'
 import RainAvatar  from './RainAvatar'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 
 const RainScene = () => {
 // DONE: Create rain using three.js
@@ -18,6 +16,18 @@ const rendererRef = useRef();
 useEffect(() => {
 
     let scene, camera, renderer;
+
+    // Added function to adjust background image size when window resizes
+
+    const handleWindowResize = () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        renderer.setSize(width, height);
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    };
 
     // Create the three.js scene
     scene = new THREE.Scene(); //set up the scene
@@ -33,6 +43,7 @@ useEffect(() => {
     // Add background image loader
     const loader = new THREE.TextureLoader();
     loader.load(RainBackground, (texture) => {
+        texture.minFilter = THREE.LinearFilter; //filter added to insure the texture keeps quality
         scene.background = texture;
     });
 
@@ -70,10 +81,14 @@ useEffect(() => {
 
     animate();
 
-    // DONE: Add avatar - separate component created 
+         // Event listener to adjust background when window is resized
+         window.addEventListener('resize', handleWindowResize);
 
-    // DONE: Cleanup 
-    return () => {
+        // Cleanup 
+        return () => {
+
+            window.removeEventListener('resize', handleWindowResize);
+
         if (rendererRef.current) {
         rendererRef.current.dispose();
         heroElement.removeChild(rendererRef.current.domElement);
@@ -83,10 +98,6 @@ useEffect(() => {
 }, []);
 
     // DONE:Add button handler
-
-    const handleWeatherForecastClick = () => {
-        console.log('Weather forecast component link'); //FIXME: Add link to component
-    };
 
     const handleBookRecommendationsClick = () => {
         console.log('Book recommendations link');
@@ -98,19 +109,15 @@ useEffect(() => {
     
     <div id="hero">
         <Canvas
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}}
+            style={{ position: 'absolute', top: 90, left: 0, width: '100%', height: '100%', zIndex: 0}}
             camera={{ position: [0, 2, 4], fov: 30 }}>
-            {/* <OrbitControls /> */} 
             <ambientLight intensity={3} />
             <RainAvatar style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}/>
         </Canvas>
         
-        {/* // DONE: Add greeting message. OPTIONAL: ask if the user would like some recommendations */}
-        {/* FIXME: Needs better styling - try Tailwind? Tried Typewriter but couldn't make it work - maybe try another package? */}
-       <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
-                <p style={{ fontSize: '24px', marginBottom: '20px' }}>Oh, no! It is pouring out here! Better stay indoors for now! Would you like me to give you the weather forecast or some book recommendations?</p>
-                <button onClick={handleWeatherForecastClick} style={{ fontSize: '18px', marginRight: '10px' }}>Weather Forecast</button>
-                <button onClick={handleBookRecommendationsClick} style={{ fontSize: '18px' }}>Book Recommendations</button>
+       <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
+                <p className="text-xl md:text-2xl mb-4">Oh, no! It is pouring out here! Better stay indoors for now! Would you like me to give you the weather forecast or some book recommendations?</p>
+                <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Book Recommendations</button>
         </div>
     </div>
 
@@ -118,8 +125,4 @@ useEffect(() => {
 }
 
 export default RainScene
-
-// TODO: IF recommendations -> create json file to store links for suggestion websites (google/tripadvisor/daysout/audible for books/spotify for music etc)
-
-// TODO: IF recommendations -> add button for external link and a random function to choose an external link from the json file
 

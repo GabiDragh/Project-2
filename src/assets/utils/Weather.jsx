@@ -1,26 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import WeatherCarousel from './WeatherCarousel';
+import { useSharedContext } from '../../SharedContext';
 
 const Weather = () => {
-  const [city, setCity] = useState('');
+  // 
+  const [city, setCity] = useState(''); 
+
   const [weatherData, setweatherData] = useState(null);
+  const [currentSkyCode, setSkyCode] = useState(null);
+  const { inputValue, weatherButtonRef } = useSharedContext();
+
 
   const apiKey = '1b3ccbbbecb0224059af59271277bfd6';
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&units=metric&appid=${apiKey}`;
 
   const fetchData = async () => {
     try {
       const response = await axios.get(apiUrl);
       console.log(response.data);
       const weatherData = response.data;
+      const currentSkyCode = weatherData.list[0].weather[0].id;
+      setSkyCode(currentSkyCode);
       const dailyForecasts = groupForecastByDay(weatherData.list);
       
-      const next7Days = Object.keys(dailyForecasts).slice(0, 7);
+      const next6Days = Object.keys(dailyForecasts).slice(0, 6);
 
-      setweatherData(next7Days.map(day => {
+      setweatherData(next6Days.map(day => {
           const middleForecastIndex = Math.floor(dailyForecasts[day].length / 2);
           const middleForecast = dailyForecasts[day][middleForecastIndex];
-          return {
+          const mappedData = {
               date: day,
               temperature: middleForecast.main.temp,
               description: middleForecast.weather[0].description,
@@ -29,6 +38,8 @@ const Weather = () => {
               pressure: middleForecast.main.pressure,
               wind_speed: middleForecast.wind.speed
           };
+          console.log(mappedData);
+          return mappedData
       }));
     }
     catch (error) {
@@ -64,28 +75,14 @@ const Weather = () => {
     <div>
       <h1>Weather Forecast</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Get Weather</button>
+        <button ref={weatherButtonRef} type="submit" style={{ display: 'none' }}>Get Weather</button>
       </form>
-      <div>
-     
-      {weatherData && weatherData.map(forecast => (
-                    <div key={forecast.date}>
-                        <h2>{forecast.date}</h2>
-                        <p>Temperature: {forecast.temperature}°C</p>
-                        <p>Description: {forecast.description}</p>
-                        <p>Feels like : {forecast.feels_like}°C</p>
-                        <p>Humidity : {forecast.humidity}%</p>
-                        <p>Pressure : {forecast.pressure}</p>
-                        <p>Wind Speed : {forecast.wind_speed}m/s</p>
-                    </div>
-                ))}
-            </div>
+
+      <Hero skyCode={currentSkyCode} />
+
+      {/* <p>Display weather information for {inputValue}</p> */}
+      <WeatherCarousel weatherData={weatherData} />
+
     </div>
   );
 };
