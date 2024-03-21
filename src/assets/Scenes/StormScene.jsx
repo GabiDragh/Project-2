@@ -2,7 +2,6 @@ import React, {useRef, useEffect } from 'react' //Import React and hooks from Re
 import * as THREE from 'three' // Import Three.js
 import StormBackground from '../images/StormBackground.jpg'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 import StormAvatar from './StormAvatar'
 import StormCloud from './StormCloud'
 
@@ -15,6 +14,18 @@ const StormScene = () => {
     useEffect(() => {
 
         let scene, camera, renderer;
+
+        // Added function to adjust background image size when window resizes
+
+        const handleWindowResize = () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            renderer.setSize(width, height);
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        };
 
         // Create the three.js scene
         scene = new THREE.Scene(); //set up the scene
@@ -29,6 +40,7 @@ const StormScene = () => {
         // Add scene background
         const loader = new THREE.TextureLoader();
         loader.load(StormBackground, (texture) => {
+            texture.minFilter = THREE.LinearFilter; //filter added to insure the texture keeps quality
             scene.background = texture;
         });
 
@@ -45,8 +57,14 @@ const StormScene = () => {
 
         animate(); 
 
+        // Event listener to adjust background when window is resized
+        window.addEventListener('resize', handleWindowResize);
+
         // Cleanup 
         return () => {
+
+            window.removeEventListener('resize', handleWindowResize);
+            
             if (rendererRef.current) {
             rendererRef.current.dispose();
             heroElement.removeChild(rendererRef.current.domElement);
@@ -56,18 +74,14 @@ const StormScene = () => {
 
         // DONE:Add button handler
 
-    const handleWeatherForecastClick = () => {
-        console.log('Weather forecast component link'); //FIXME: Add link to component
-    };
-
     const handleBookRecommendationsClick = () => {
         console.log('Book recommendations link');
-        // window.open('https://www.tripadvisor.co.uk/Search?&q=Storm%20day%20in%20'${{ searchInput }}'', '_blank'); //Add search input field from navbar - add id in navbar
+        window.open('https://www.netflix.com/browse', '_blank'); //Add search input field from navbar - add id in navbar
     };
 
     const adjustStormCloudForScreenSize = () => {
         let screenScale = null;
-        let screenPosition = [-0.7, -6, -22];
+        let screenPosition = [-0.7, -6, -18];
         let rotation = [0, 0, 0];
 
         if(window.innerWidth < 768) {
@@ -76,33 +90,30 @@ const StormScene = () => {
             screenScale = [0.3, 0.3, 0.3];
         }
     
-
         return [screenScale, screenPosition, rotation]
         }
 
-        const [islandScale, islandPosition, islandRotation] = adjustStormCloudForScreenSize();
+        const [cloudScale, cloudPosition, cloudRotation] = adjustStormCloudForScreenSize();
 
      return (
 
 
         <div id="hero">
             <Canvas
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}}
+                style={{ position: 'absolute', top: 90, left: 0, width: '100%', height: '100%', zIndex: 0}}
                 camera={{ position: [0, 2, 4], fov: 30 }}>
-                {/* <OrbitControls />  */}
                 <ambientLight intensity={3} />
                 <StormAvatar style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}/>
                 <StormCloud 
-                position={islandPosition}
-                scale={islandScale}
-                rotation={islandRotation} />
+                position={cloudPosition}
+                scale={cloudScale}
+                rotation={cloudRotation} />
             </Canvas>
             
             {/* FIXME: Needs better styling - try Tailwind? Tried Typewriter but couldn't make it work - maybe try another package? */}
-            <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
-                <p style={{ fontSize: '24px', marginBottom: '20px' }}>Wowza! That does not look good! Better go in right away!</p>
-                <button onClick={handleWeatherForecastClick} style={{ fontSize: '18px', marginRight: '10px' }}>Weather Forecast</button>
-                <button onClick={handleBookRecommendationsClick} style={{ fontSize: '18px' }}>Netflix and chill</button>
+            <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
+                <p className="text-2xl md:text-4xl mb-8">Wowza! That does not look good! Better go inside right away!</p>
+                <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Netflix and chill</button>
         </div>
         </div>
 

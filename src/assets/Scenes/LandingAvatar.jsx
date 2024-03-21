@@ -26,7 +26,7 @@ const LandingAvatar = () => {
   return (
     <group ref={group}>
       <group name="Scene">
-        <group name="Armature" position={[0, 0, 1.3]} rotation={[Math.PI / 2.25, 0, 0]} scale={0.005, 0.005, 0.005}>
+        <group name="Armature" position={[0, 0.5, 1]} rotation={[Math.PI / 2.25, 0, 0]} scale={0.005, 0.005, 0.005}>
           <skinnedMesh
             name="Ch03"
             geometry={nodes.Ch03.geometry}

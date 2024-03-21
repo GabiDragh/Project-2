@@ -4,6 +4,7 @@ import axios from 'axios';
 const Weather = () => {
   const [city, setCity] = useState('');
   const [weatherData, setweatherData] = useState(null);
+  const [currentSkyCode, setSkyCode] = useState(null);
 
   const apiKey = '1b3ccbbbecb0224059af59271277bfd6';
   const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
@@ -13,6 +14,8 @@ const Weather = () => {
       const response = await axios.get(apiUrl);
       console.log(response.data);
       const weatherData = response.data;
+      const currentSkyCode = weatherData.list[0].weather[0].id;
+      setSkyCode(currentSkyCode);
       const dailyForecasts = groupForecastByDay(weatherData.list);
       
       const next7Days = Object.keys(dailyForecasts).slice(0, 7);
@@ -72,6 +75,7 @@ const Weather = () => {
         />
         <button type="submit">Get Weather</button>
       </form>
+      <Hero skyCode={currentSkyCode} />
       <div>
      
       {weatherData && weatherData.map(forecast => (
