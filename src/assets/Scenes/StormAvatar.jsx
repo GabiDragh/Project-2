@@ -27,7 +27,7 @@ const StormAvatar = (props) => {
   return (
     <group ref={group} {...props}>
       <group name="Scene">
-        <group name="Armature" position={[0.1, 0, 1]} rotation={[Math.PI / 3, 0, 0.2]} scale={0.005, 0.005, 0.005}>
+        <group name="Armature" position={[0.1, -0.5, 0.7]} rotation={[Math.PI / 3, 0, 0.2]} scale={0.005, 0.005, 0.005}>
           <skinnedMesh
             name="Ch03"
             geometry={nodes.Ch03.geometry}

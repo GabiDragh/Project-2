@@ -4,6 +4,26 @@
     align-items: flex-start;
     justify-content: space-between;
     background: white;
+    padding: 5px;
+    transition: 0.5s;
+    height: 70px;
+
+}
+.logo{
+    width: 70px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* .search-box{
+    display: flex;
+    align-items: center;.navbar{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: white;
     padding: 15px 7%;
     transition: 0.5s;
     height: 100px;
