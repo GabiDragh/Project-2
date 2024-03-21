@@ -6,7 +6,7 @@ import { useSharedContext } from '../../SharedContext';
 const Weather = () => {
   const [city, setCity] = useState('');
   const [weatherData, setweatherData] = useState([]);
-  const { inputValue } = useSharedContext();
+  const { inputValue, weatherButtonRef } = useSharedContext();
 
   const apiKey = '1b3ccbbbecb0224059af59271277bfd6';
   const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&units=metric&appid=${apiKey}`;
@@ -69,9 +69,9 @@ const Weather = () => {
     <div>
       <h1>Weather Forecast</h1>
       <form onSubmit={handleSubmit}>
-        <button type="submit">Get Weather</button>
+        <button ref={weatherButtonRef} type="submit" style={{ display: 'none' }}>Get Weather</button>
       </form>
-      <p>Display weather information for {inputValue}</p>
+      {/* <p>Display weather information for {inputValue}</p> */}
       <WeatherCarousel weatherData={weatherData} />
     </div>
   );

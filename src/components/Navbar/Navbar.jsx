@@ -8,9 +8,14 @@ import search_icon from '../../assets/images/search-w.png'
 const Navbar = ({theme, setTheme}) => {
 
   const { inputValue, setInputValue } = useSharedContext();
+  const { triggerWeatherButtonClick } = useSharedContext();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+  };
+
+  const handleButtonClick = () => {
+    triggerWeatherButtonClick();
   };
 
   return (
@@ -18,7 +23,7 @@ const Navbar = ({theme, setTheme}) => {
   <img src={logo_main} alt='' className='logo'/>
   <div className='search-box'>
     <input type='text' placeholder='City/Country' value={inputValue} onChange={handleInputChange}/>
-    <img src={search_icon} alt='' className='search-icon'/>
+    <button onClick={handleButtonClick} className='button'><img src={search_icon} alt='' className='search-icon'/></button>
   </div>
 </div>
   )

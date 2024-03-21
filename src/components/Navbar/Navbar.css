@@ -66,6 +66,12 @@
   .search-box input::placeholder {
     color: #fff;
   }
+
+  .button
+  {
+    border: none;
+    background: transparent;
+  }
   
   .search-icon {
     width: 20px;
