@@ -4,7 +4,8 @@ import WeatherCarousel from './WeatherCarousel';
 import { useSharedContext } from '../../SharedContext';
 
 const Weather = () => {
-  const [city, setCity] = useState('');
+  // 
+  const [city, setCity] = useState(''); 
 
   const [weatherData, setweatherData] = useState(null);
   const [currentSkyCode, setSkyCode] = useState(null);
