@@ -62,6 +62,7 @@ const Weather = () => {
 
   return (
     <div>
+      <h1>Weather Forecast</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
