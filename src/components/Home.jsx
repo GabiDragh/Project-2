@@ -12,11 +12,10 @@ const Home = () => (
     <>
     <SharedProvider>
         <Navbar/>
-        <Hero/>
-        {/* <Cards/> */}
         <Weather/>
+        <Hero/>
         <Footer/>
-        </SharedProvider>   
+    </SharedProvider>   
     </>
 );
 

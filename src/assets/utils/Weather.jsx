@@ -73,7 +73,6 @@ const Weather = () => {
 
   return (
     <div>
-      <h1>Weather Forecast</h1>
       <form onSubmit={handleSubmit}>
         <button ref={weatherButtonRef} type="submit" style={{ display: 'none' }}>Get Weather</button>
       </form>

@@ -15,7 +15,7 @@ const WeatherCarousel = ({ weatherData }) => {
   };
 
   if (!weatherData) {
-    return <p>No weather data</p>;
+    return null;
   }
 
   return (
