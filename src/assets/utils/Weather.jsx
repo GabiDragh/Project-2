@@ -78,7 +78,7 @@ const Weather = () => {
         <button ref={weatherButtonRef} type="submit" style={{ display: 'none' }}>Get Weather</button>
       </form>
 
-      <Hero skyCode={currentSkyCode} />
+      {/* <Hero skyCode={currentSkyCode} /> */}
 
       {/* <p>Display weather information for {inputValue}</p> */}
       <WeatherCarousel weatherData={weatherData} />
