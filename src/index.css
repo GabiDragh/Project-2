@@ -23,18 +23,22 @@ body {
   min-height: 96vh;
 }
 
-#hero {
+
+ #hero {
   text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  font-size:60px;
+  font-size: 60px;
   font-weight: bold;
   color: rgb(0, 0, 0);
-  background-color: #27a1d1cb;
-  min-height: 70vh;
-  padding: 400px;
+  background-color: #27a1d1cb; 
+  min-height: 100vh; 
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
   
-}
+ } 
 
 .col {
   text-align: center;
@@ -78,3 +82,8 @@ body {
     font-size: 120px;
   }
 }
+
+@keyframes type {
+  from { width: 0; }
+}
+
