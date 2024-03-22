@@ -74,7 +74,7 @@ const StormScene = () => {
 
         // DONE:Add button handler
 
-    const handleBookRecommendationsClick = () => {
+    const handleRecommendationsClick = () => {
         console.log('Book recommendations link');
         window.open('https://www.netflix.com/browse', '_blank'); //Add search input field from navbar - add id in navbar
     };
@@ -113,7 +113,7 @@ const StormScene = () => {
             {/* FIXME: Needs better styling - try Tailwind? Tried Typewriter but couldn't make it work - maybe try another package? */}
             <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
                 <p className="text-2xl md:text-4xl mb-8">Wowza! That does not look good! Better go inside right away!</p>
-                <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Netflix and chill</button>
+                <button onClick={handleRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Netflix and chill</button>
         </div>
         </div>
 

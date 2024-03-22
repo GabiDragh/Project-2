@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import weatherMock from '../services/weatherMock';
 
 // DONE: Import asset components (weather scenes)
@@ -14,16 +14,11 @@ import PropTypes from 'prop-types';
 
 
 const Hero = ({ skyCode }) => { 
-
-    const [weatherScene, setWeatherScene] = useState(<LandingScene />);
-
-    useEffect(() => {
-        setWeatherScene(callAsset(skyCode));
-    }, [skyCode]);
-
+ 
     // DONE: Function to navigate through the sky text and return asset component
 
     const callAsset = (skyCode) => {
+
 
     const sunny = [800];
     const cloudy = [801, 802, 803, 804];
@@ -33,37 +28,36 @@ const Hero = ({ skyCode }) => {
     const athmosphere = [701, 711, 721, 731, 741, 751, 761, 762, 771, 781];
 
     //     // DONE: Add swithcase statement that returns assest component based on simplified text from sky text
-    switch (true) {
-        case sunny.includes(skyCode):
-            return <SunnyScene />;
-        case cloudy.includes(skyCode):
-            return <CloudyScene />;
-        case rain.includes(skyCode):
-            return <RainScene />;
-        case snow.includes(skyCode):
-            return <SnowScene />;
-        case storm.includes(skyCode):
-            return <StormScene />;
-        default:
-            return null;
-    }
-};
+        switch (true) {
+            case sunny.includes(skyCode):
+                return <SunnyScene />; 
+            case cloudy.includes(skyCode):
+                return <CloudyScene />;
+            case rain.includes(skyCode):
+                return <RainScene />;
+            case snow.includes(skyCode):
+                return <SnowScene />;
+            case storm.includes(skyCode):
+                return <StormScene />;
+            // FIXME: possible other cases? Weather APi dependent
+            default:
+                return <LandingScene />;
+        }
+    };
 
     // DONE: Return in browser
     return (
         <div id="hero">
-            {weatherScene ? weatherScene : null}      
+
+           {callAsset(skyCode)}
+                
         </div>
 );
 
 };
 
 Hero.propTypes = {
-    skyCode: PropTypes.number, 
+    skyCode: PropTypes.number.isRequired, 
   };
-
-  Hero.defaultProps = {
-    skyCode: null,
-};
 
 export default Hero
