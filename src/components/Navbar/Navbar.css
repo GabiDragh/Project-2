@@ -67,7 +67,7 @@
 .search-box {
     display: flex;
     align-items: center;
-    background: #242424;
+    background: rgb(69, 151, 234);
     padding: 10px 20px 10px 100px;
     /* border-radius: 50px; */
     width: 100%;

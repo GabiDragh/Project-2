@@ -1,5 +1,8 @@
 .box {
-    background-image: url("../images/bg.jpg");
+    /* background-image: url("../images/bg.jpg"); */
+    /* background-color: rgb(69, 151, 234); */
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
