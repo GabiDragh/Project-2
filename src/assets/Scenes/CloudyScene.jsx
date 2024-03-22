@@ -73,9 +73,9 @@ const CloudyScene = () => {
 
         // DONE:Add button handler
 
-    const handleBookRecommendationsClick = () => {
+    const handleRecommendationsClick = () => {
         console.log('Book recommendations link');
-        // window.open('https://www.tripadvisor.co.uk/Search?&q=Cloudy%20day%20in%20'${{ searchInput }}'', '_blank'); //Add search input field from navbar - add id in navbar
+        window.open('https://www.tripadvisor.co.uk/Search?&q=Cloudy%20day%20', '_blank');
     };
 
      return (
@@ -91,7 +91,7 @@ const CloudyScene = () => {
             
             <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
                 <p className="text-xl md:text-2xl mb-4">Neither good nor bad! A bit cloudy, but good enough for a walk!</p>
-                <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Let's go for a walk!</button>
+                <button onClick={handleRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Let's go for a walk!</button>
         </div>
         </div>
 

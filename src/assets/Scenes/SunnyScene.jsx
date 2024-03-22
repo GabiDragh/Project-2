@@ -74,9 +74,9 @@ const SunnyScene = () => {
 
         // DONE:Add button handler
 
-    const handleBookRecommendationsClick = () => {
-        console.log('Book recommendations link');
-        // window.open('https://www.tripadvisor.co.uk/Search?&q=sunny%20day%20in%20'${{ searchInput }}'', '_blank'); //Add search input field from navbar - add id in navbar
+    const handleRecommendationsClick = () => {
+        console.log('Outdoor link');
+        window.open('https://www.tripadvisor.co.uk/Search?&q=sunny%20day', '_blank'); 
     };
 
      return (
@@ -92,7 +92,7 @@ const SunnyScene = () => {
             
             <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
                 <p className="text-xl md:text-2xl mb-4">Yay! All nice and sunny out here! Want to go out exploring? I have some great suggestions for you!</p>
-                <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Let's go outside!</button>
+                <button onClick={handleRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Let's go outside!</button>
         </div>
         </div>
 
