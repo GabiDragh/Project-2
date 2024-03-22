@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import weatherMock from '../services/weatherMock';
 
 // DONE: Import asset components (weather scenes)
 
-import LandingScene from '../assets/Scenes/LandingScene.jsx'
+// import LandingScene from '../assets/Scenes/LandingScene.jsx'
 import SunnyScene from '../assets/Scenes/SunnyScene.jsx'
 import CloudyScene from '../assets/Scenes/CloudyScene.jsx'
 import RainScene from '../assets/Scenes/RainScene.jsx'
