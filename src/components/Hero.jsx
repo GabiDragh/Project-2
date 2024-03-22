@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 
 const Hero = ({ skyCode }) => { 
 
-    const [weatherScene, setWeatherScene] = useState(null);
+    const [weatherScene, setWeatherScene] = useState(<LandingScene />);
 
     useEffect(() => {
         setWeatherScene(callAsset(skyCode));
