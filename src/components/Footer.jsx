@@ -10,7 +10,7 @@ const Footer=()=>{
         <div className='footer1'>
             <div className='sb_footer1 section_padding'>
                 <div className='sb_footer1-links'>
-                    <div className='sb_footer1-links-div'>
+                    <div className='sb_footer1-links_div'>
                         <h4>Weather Rebel</h4>
                         <a href='/application'>
                             <p> Application</p>
@@ -25,10 +25,10 @@ const Footer=()=>{
                     <div className='sb_footer1-links_div'>
                         <h4>About</h4>
                         <a href='/about'>
-                            <p>??</p>
+                            <p>Mission</p>
                             </a>
-                            <a href='/about'>
-                            <p> ?? </p>
+                            <a href='https://www.edx.org/boot-camps'>
+                            <p> EdX Bootcamp </p>
                             </a>
                             <a href='/about'>
                             <p>Help Centre</p>
@@ -36,20 +36,24 @@ const Footer=()=>{
                     </div>
                     <div className='sb_footer1-links_div'>
                         <h4>Partners</h4>
-                        <a href='/partners'>
+                        <a href='https://github.com/GabiDragh'>
                             <p>Gabi</p>
+                            </a>
+                        <a href='https://github.com/SobolewskiMaciej'>
                             <p>Maciej</p>
+                            </a>
+                            <a href='https://github.com/Jean-003'>
                             <p>Jean</p>
+                            </a>
+                            <a href='https://github.com/sherinbinny'>
                             <p>Sherin</p>
+                            </a>
+                            <a href='https://github.com/mohammed45a'>
                             <p>Mohammed</p>
-                        </a>
-
+                            </a>
                     </div>
                     <div className='sb_footer1-links_div'>
                         <h4>Company</h4>
-                        <a href='/about'>
-                            <p>About</p>
-                            </a>
                             <a href='/press'>
                             <p>Press</p>
                             </a>
@@ -63,10 +67,18 @@ const Footer=()=>{
                             <div className='sb_footer1-links_div'>
                                 <h4>Coming soon on</h4>
                                 <div className='socialmedia'>
+                                    <a href='https://www.facebook.com/'>
                                     <p><img src={fb} alt=''/></p>
+                                    </a>
+                                    <a href='https://twitter.com/'>
                                     <p><img src={twitter} alt=''/></p>
+                                    </a>
+                                    <a href='https://www.linkedin.com/'>
                                     <p><img src={linkedin} alt=''/></p>
+                                    </a>
+                                    <a href='https://github.com/'>
                                     <p><img src={github} alt=''/></p>
+                                    </a>
                                 </div>
                             </div>
                     </div>
@@ -93,3 +105,4 @@ const Footer=()=>{
 }
 
 export default Footer;
+
