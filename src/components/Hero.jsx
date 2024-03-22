@@ -41,7 +41,7 @@ const Hero = ({ skyCode }) => {
                 return <StormScene />;
             // FIXME: possible other cases? Weather APi dependent
             default:
-                return <LandingScene />
+                return null;
         }
     };
 
