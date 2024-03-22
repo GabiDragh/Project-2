@@ -1,4 +1,4 @@
-<h1 align="center" id="title">WeatherRebel</h1>
+<h1 align="center" id="title">Weather Rebel</h1>
 
 ## Table of Contents
 1. [Project Description](#project-description)
@@ -31,7 +31,7 @@ The motivation behind this project was to deepen our understanding of developing
 
 - React 18.2.0
 - Bootstrap 5.3.3
-- Three.js 
+- Three.js 0.162.0
 
 
 ### MVP
@@ -45,15 +45,17 @@ The motivation behind this project was to deepen our understanding of developing
 
 
 ### Extensions
-- Combine weather app with a to do list 
-- Activity suggestions based on the weather 
-- Game within the app
-- Fun fact of the day
-
+- Update the weather scenes with sound effects and more 3D elements 
+- Combine the weather app with a to-do list
+- Add more activity suggestions based on the weather
+- Add a simple game within the app
+- Add a fun fact of the day functionality
+- Share on social media
 
 
 ### The URL of the deployed app using Netlify:
 
+https://weatherrebel.netlify.app/
 
 ### The URL of the GitHub repository that contains the code:
 
@@ -70,7 +72,7 @@ https://github.com/GabiDragh/Project-2
 - Next run the command ```npm run dev``` to start the application in the browser.
 
 ## Usage
-To access the weather forecast for any country or city, simply enter the name in the search box located in the top-left corner of the webpage. The current weather, along with a suggestion from our charming Weather Rebel mascot, will be displayed in the main/hero section of the webpage. The forecast for the next seven days will appear in the carousel just below the main section.
+To access the weather forecast for any country or city, simply enter the name in the search box located in the top-left corner of the webpage and click on 'search'. The current weather, along with a suggestion from our charming Weather Rebel mascot, will be displayed in the main/hero section of the webpage. The forecast for the next five days will appear in the carousel just below the main section. Clicking on the button within the main section will also take you to curated websites based on the weather of the day.
 
 For testing the responsiveness of our website across different screen sizes:
 
@@ -83,19 +85,31 @@ For testing the responsiveness of our website across different screen sizes:
 
 
 
-<img width="480" alt="" src="">
+<img width="880" alt="" src="https://github.com/GabiDragh/Project-2/assets/152238337/f56b2185-5cda-4819-bc5b-dbd6d9c91af2">
+
 
 **^ The first image displays the navbar and also the search bar^** 
 
 
+<img width="880" alt="" src="https://github.com/GabiDragh/Project-2/assets/152238337/a3f28eef-f8ca-4dac-800d-131d86252c36">
 
-<img width="480" alt="" src="">
 
 **^ This image displays the hero (main) section of the app^**
 
 
+<img width="880" alt="" src="https://github.com/GabiDragh/Project-2/assets/152238337/961d0308-a095-4ca8-b4a0-38daff705968">
 
-<img width="480" alt="" src="">
+
+**^ This image shows the buttton that will take you to the Tripadvisor app^**
+
+
+
+<img width="880" alt="" src="https://github.com/GabiDragh/Project-2/assets/152238337/8be6b436-1b2b-43ad-a8ff-527f21247905">
+
+**^ This image displays a carousel within the app^**
+
+<img width="880" alt="" src="https://github.com/GabiDragh/Project-2/assets/152238337/bfd6de25-5f33-4891-978c-343025661029">
+
 
 **^ This image displays the footer section with a days of the week carousel^**
 
