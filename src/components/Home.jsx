@@ -13,8 +13,8 @@ const Home = () => (
     <>
     <SharedProvider>
         <Navbar/>
-        <Weather/>
         <Hero/>
+        <Weather/>
         <Footer/>
     </SharedProvider>   
     </>

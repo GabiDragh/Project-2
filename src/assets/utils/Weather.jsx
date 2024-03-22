@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import WeatherCarousel from './WeatherCarousel';
 import { useSharedContext } from '../../SharedContext';
+import Hero from '../../components/Hero';
+
 const Weather = () => {
   //
   const [city, setCity] = useState('');
@@ -63,7 +65,7 @@ const Weather = () => {
       <form onSubmit={handleSubmit}>
         <button ref={weatherButtonRef} type="submit" style={{ display: 'none' }}>Get Weather</button>
       </form>
-      {/* <Hero skyCode={currentSkyCode} /> */}
+      {currentSkyCode && <Hero skyCode={currentSkyCode} />}
       {/* <p>Display weather information for {inputValue}</p> */}
       <WeatherCarousel weatherData={weatherData} />
     </div>

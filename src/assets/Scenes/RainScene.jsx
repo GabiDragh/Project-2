@@ -116,7 +116,7 @@ useEffect(() => {
         </Canvas>
         
        <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
-                <p className="text-xl md:text-2xl mb-4">Oh, no! It is pouring out here! Better stay indoors for now! Would you like me to give you the weather forecast or some book recommendations?</p>
+                <p className="text-xl md:text-2xl mb-4">Oh, no! It is pouring out here! Better stay indoors for now! Would you like some book recommendations?</p>
                 <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Book Recommendations</button>
         </div>
     </div>

@@ -36,3 +36,19 @@ SunnyScene 3d model "Simple Sun" (https://skfb.ly/6XJM9) by VIS-All-3D is licens
 StormScene 3d model "cloud lightning" (https://skfb.ly/oC6oA) by Kyyy_24 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 Avatar used for all scenes from https://www.mixamo.com/#/?page=1&type=Character
+
+## Scene background sounds
+
+Hello Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87141">Pixabay</a>
+
+Fairy Dust Shimmer 1 Sound Effect by <a href="https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=175611">floraphonic</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=175611">Pixabay</a>
+
+Happy Logo Version 2 Sound Effect by <a href="https://pixabay.com/users/muzaproduction-24990238/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=13399">Aleksandr Karabanov</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=13399">Pixabay</a>
+
+Woosh_Low_Long01 Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=98755">Pixabay</a>
+
+Heavy Rain Sound Effect by <a href="https://pixabay.com/users/juliush-3921568/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=8186">Julius H.</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=8186">Pixabay</a>
+
+Winter Holiday Logo Sound Effect by <a href="https://pixabay.com/users/muzaproduction-24990238/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=14033">Aleksandr Karabanov</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=14033">Pixabay</a>
+
+Loud Thunder Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192165">UNIVERSFIELD</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192165">Pixabay</a>

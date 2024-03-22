@@ -146,7 +146,7 @@ const SnowScene = () => {
 
         // DONE:Add button handler
 
-        const handleBookRecommendationsClick = () => {
+        const handleRecommendationsClick = () => {
             console.log('Book recommendations link');
             window.open('https://www.skiresort.info/ski-resorts/europe/', '_blank');
         };
@@ -162,10 +162,22 @@ const SnowScene = () => {
                
             </Canvas>
             
-            <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 text-center">
-                <p className="text-xl md:text-2xl mb-4">It's snowing! Let's go ski!</p>
-                <button onClick={handleBookRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Let's go ski!</button>
-        </div>
+            
+            <div className="absolute w-full inset-x-0 bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/3 text-center">
+                <div className='row'>
+                    <div className='col-6 align-center'>
+                <p className="text-xl md:text-2xl mb-4 align-top">It's snowing! Let's go ski!</p>
+                <button onClick={handleRecommendationsClick} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">To the slopes</button>
+                </div>
+                <div className='col-6'>
+                <p className="text-xl md:text-2xl mb-4 align-top">Want to play a game instead?</p>
+            
+                <iframe src="https://html5.gamedistribution.com/f09ebbda519840f3a18176597fd7664e/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" width="300" height="200" scrolling="none" frameborder="0"></iframe>
+               
+                </div>
+                </div>
+            </div>
+        
         </div>
 
     );
